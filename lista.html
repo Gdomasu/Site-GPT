@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dark Souls - Lores of the Lords</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    /* Estilo para a página inteira */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Oculta a barra de rolagem vertical */
+    }
+
+    /* Estilo para o carrossel */
+    .carousel {
+      height: 100%;
+    }
+
+    /* Estilo para as imagens do carrossel */
+    .carousel-inner .carousel-image {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Estilo para o texto de descrição */
+    .carousel-inner .carousel-caption {
+      background-color: transparent;
+      bottom: 0;
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: absolute; /* Define a posição absoluta */
+      top: 50%; /* Centraliza verticalmente */
+      transform: translateY(-50%); /* Centraliza verticalmente */
+      max-width: 600px; /* Define um valor máximo para a largura */
+      margin: 0 auto; /* Centraliza horizontalmente */
+      left: 0;
+      right: 0;
+    }
+
+    .carousel-inner .carousel-caption p {
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    /* Estilo para o rodapé */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- Loop para exibir as imagens -->
+      <script>
+        var images = [
+          "imagens/lord1.jpg",
+          "imagens/lord2.jpg",
+          "imagens/lord3.jpg",
+          "imagens/lord4.jpg",
+          "imagens/lord5.jpg"
+        ];
+
+        var descriptions = [
+          "Nito, o Primeiro dos Mortos: Nito é conhecido como o Primeiro dos Mortos e governa o domínio das catacumbas. Ele é uma figura esquelética coberta de escuridão e podridão. Nito detém um poder enorme sobre a morte e a decomposição, e suas ações influenciam diretamente a natureza dos mortos-vivos no mundo.",
+          "A Bruxa de Izalith: A Bruxa de Izalith era uma das quatro lordes originais e mãe das Bruxas do Fogo. Ela tentou recriar a Primeira Chama, mas o experimento deu errado e resultou na criação do Caos, uma força ardente que consumiu sua cidade e a transformou em um ser demoníaco chamado Bed of Chaos.",
+          "Seath, o Descamado: Seath é um dragão albino sem escamas e traiu seus semelhantes durante a guerra contra os dragões. Ele é conhecido por sua inteligência excepcional e é um mestre em magias cristalinas. Seath reside em seu laboratório na Fortaleza de Duke.",
+          "Quatro Reis de New Londo: Os Quatro Reis de New Londo são uma entidade singular que governa a cidade afundada de New Londo. Eles foram corrompidos pelo poder das trevas e se tornaram abominações horrendas. Sua presença representa uma ameaça ao equilíbrio do mundo.",
+          "Gwyn, o Senhor da Luz: Gwyn é o governante do reino de Lordran e um dos quatro lordes originais que encontraram as poderosas Almas da Alma das Chamas. Ele liderou uma guerra contra os dragões e, com a ajuda de suas poderosas lâminas de luz, foi bem-sucedido em trazer a era da Luz. No entanto, ele eventualmente se tornou um ser envelhecido e desgastado, sacrificando-se para manter a chama viva."
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imgSrc = images[i];
+          var description = descriptions[i];
+
+          // Criar elemento <img> e adicionar à carousel-inner
+          var imgElement = document.createElement("img");
+          imgElement.src = imgSrc;
+          imgElement.className = "d-block w-100 carousel-image";
+          imgElement.alt = "Personagem " + (i + 1);
+
+          // Criar elemento de legenda e adicionar à carousel-caption
+          var captionElement = document.createElement("div");
+          captionElement.className = "carousel-caption";
+          var captionText = document.createElement("p");
+          captionText.textContent = description;
+          captionElement.appendChild(captionText);
+
+          // Criar elemento de item de carrossel e adicionar à carousel-inner
+          var carouselItemElement = document.createElement("div");
+          carouselItemElement.className = "carousel-item";
+          if (i === 0) {
+            carouselItemElement.classList.add("active");
+          }
+          carouselItemElement.appendChild(imgElement);
+          carouselItemElement.appendChild(captionElement);
+
+          document.querySelector(".carousel-inner").appendChild(carouselItemElement);
+        }
+      </script>
+      <!-- Fim do loop -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
